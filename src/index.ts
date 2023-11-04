@@ -7,4 +7,4 @@ client.start();
 
 export { client }
 
-client.on('connection', (stream) => console.log('connected!'.green))
+client.on('ready', () => console.log('connected!'.green))
