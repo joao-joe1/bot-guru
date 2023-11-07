@@ -10,10 +10,13 @@ type EventData<Key extends keyof ClientEvents> = {
 
 export class Event<Key extends keyof ClientEvents> {
     public static all: Array<EventData<keyof ClientEvents>> = [];
-    constructor(data: EventData<Key>){
-        log.success(
+    public sucessMessage: any;
+
+    constructor(data: EventData<Key>) {
+        this.sucessMessage = log.success(
             ck.green(`${ck.yellow.underline(data.name)} registered successfully!`)
         );
         Event.all.push(data);
+        return this.sucessMessage
     }
 }
