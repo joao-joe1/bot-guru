@@ -1,10 +1,8 @@
-import { ExtentedClient } from './structs/ExtendedClient.js'
-export * from 'colors'
+import { createClient } from "./discord/base";
+import { log } from "./settings";
 
-const client = new ExtentedClient();
-
+const client = createClient();
 client.start();
 
-export { client }
-
-client.on('ready', () => console.log('connected!'.green))
+process.on("uncaughtException", log.error);
+process.on("unhandledRejection", log.error);
